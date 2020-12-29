@@ -1,0 +1,42 @@
+
+def make_list(input1,input2):
+    """(int, int) -> list
+    Return a list having input1, input2, and numbers between input1 and 2 as elements
+    
+    >>>make_list(1,5)
+    [1,2,3,4,5]
+    """
+    wanted_list = []
+    if input1< input2:
+        for i in range(input1, input2 +1):
+            wanted_list.append(i)
+    else:
+        for i in range(input2, input1+1):
+            wanted_list.append(i)
+    return wanted_list
+
+def isPrimenumber(input1):
+    for i in range(1,input1+1):
+        if i == 1:
+            continue
+        elif i != input1:
+            remainder = input1% i
+            if remainder ==0:
+                return False
+                break
+            elif remainder != 0:
+                continue
+        else:
+            return True
+
+def mainProgram():
+    a=int(input("First integer"))
+    b=int(input("Second integer"))
+    mainlist = make_list(a, b)
+    sum = int(0)
+    for i in mainlist:
+        if isPrimenumber(i):
+            sum = sum+i
+        else:
+            continue
+    print(sum)
